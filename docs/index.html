@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Silky Choco - Premium Chocolate Products</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav>
+    <div class="navbar-container">
+      <a href="index.html" class="logo">🍫 Silky Choco</a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="pages/menu.html">Menu</a></li>
+        <li><a href="pages/about.html">About</a></li>
+        <li><a href="pages/contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <div class="container">
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <h1>Welcome to Silky Choco</h1>
+      <p>Premium chocolate products crafted with love and the finest ingredients</p>
+      <a href="pages/menu.html" class="btn">Explore Our Menu</a>
+    </section>
+
+    <!-- FEATURED PRODUCTS -->
+    <section>
+      <h2>Featured Products</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="card-image">🍫</div>
+          <h3>Dark Chocolate Bars</h3>
+          <p>Rich and indulgent dark chocolate bars with 70% cocoa content. Perfect for chocolate lovers.</p>
+          <a href="pages/menu.html" class="btn">View Details</a>
+        </div>
+
+        <div class="card">
+          <div class="card-image">🍫</div>
+          <h3>Milk Chocolate Truffle</h3>
+          <p>Smooth and creamy milk chocolate truffles stuffed with ganache filling. A true delicacy.</p>
+          <a href="pages/menu.html" class="btn">View Details</a>
+        </div>
+
+        <div class="card">
+          <div class="card-image">🍫</div>
+          <h3>White Chocolate Delights</h3>
+          <p>Silky smooth white chocolate with unique flavors. Our signature creation.</p>
+          <a href="pages/menu.html" class="btn">View Details</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section>
+      <h2>Why Choose Us?</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>🥇 Premium Quality</h3>
+          <p>We use only the finest ingredients sourced from around the world to ensure superior quality.</p>
+        </div>
+
+        <div class="card">
+          <h3>🎨 Handcrafted</h3>
+          <p>Each product is carefully crafted by our skilled artisans with attention to detail.</p>
+        </div>
+
+        <div class="card">
+          <h3>🌍 Sustainable</h3>
+          <p>We are committed to ethical sourcing and environmentally friendly packaging.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Silky Choco. All rights reserved.</p>
+    <p>Email: info@silkychoco.com | Phone: (555) 123-4567</p>
+  </footer>
+
+  <script>
+    // Set active nav link based on current page
+    document.addEventListener('DOMContentLoaded', function() {
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      const links = document.querySelectorAll('.nav-links a');
+      links.forEach(link => {
+        const href = link.getAttribute('href').split('/').pop() || 'index.html';
+        if (href === currentPage) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

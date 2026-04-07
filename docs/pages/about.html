@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Silky Choco</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav>
+    <div class="navbar-container">
+      <a href="../index.html" class="logo">🍫 Silky Choco</a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <div class="container">
+    <section class="hero" style="background: linear-gradient(135deg, #6b4423 0%, #8b5a3c 100%);">
+      <h1>About Silky Choco</h1>
+      <p>Crafting Premium Chocolate Since 2020</p>
+    </section>
+
+    <section>
+      <h2>Our Story</h2>
+      <p style="text-align: center; color: #666; margin-bottom: 2rem; line-height: 1.8; max-width: 800px; margin-left: auto; margin-right: auto;">
+        Silky Choco was founded with a simple mission: to create the finest chocolate products using only the best ingredients from around the world. 
+        What started as a small artisan operation has grown into a beloved brand trusted by chocolate enthusiasts everywhere.
+      </p>
+    </section>
+
+    <section>
+      <h2>Our Values</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>🎯 Quality</h3>
+          <p>We never compromise on quality. Every chocolate product is carefully tested and crafted to perfection.</p>
+        </div>
+
+        <div class="card">
+          <h3>🌱 Sustainability</h3>
+          <p>We believe in ethical sourcing and sustainable practices. Our packaging is 100% recyclable and biodegradable.</p>
+        </div>
+
+        <div class="card">
+          <h3>❤️ Passion</h3>
+          <p>Our team is passionate about chocolate. We love what we do, and it shows in every bite.</p>
+        </div>
+
+        <div class="card">
+          <h3>🤝 Community</h3>
+          <p>We support local farmers and communities in cocoa-producing regions around the world.</p>
+        </div>
+
+        <div class="card">
+          <h3>💡 Innovation</h3>
+          <p>While honoring tradition, we constantly innovate to bring new flavors and experiences to our customers.</p>
+        </div>
+
+        <div class="card">
+          <h3>🏆 Excellence</h3>
+          <p>Excellence is not a goal; it's our standard. We strive for it in everything we do.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Our Team</h2>
+      <p style="text-align: center; color: #666; margin-bottom: 2rem;">
+        Meet the passionate chocolatiers and artisans who make Silky Choco special.
+      </p>
+      <div class="grid">
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #d4a574 0%, #b8956a 100%); font-size: 4rem;">👨‍🍲</div>
+          <h3>Master Chocolatier</h3>
+          <p>With 25 years of experience, our master chocolatier leads the team in creating exceptional products.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #d4a574 0%, #b8956a 100%); font-size: 4rem;">👩‍🔬</div>
+          <h3>Head of Quality Control</h3>
+          <p>Our quality control expert ensures every product meets our rigorous standards before reaching you.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #d4a574 0%, #b8956a 100%); font-size: 4rem;">👨‍💼</div>
+          <h3>Founder & CEO</h3>
+          <p>Visionary leader dedicated to bringing premium chocolate to customers worldwide.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="background: #f0e6d2; padding: 2rem; border-radius: 10px; text-align: center;">
+      <h3 style="color: #6b4423; margin-bottom: 1rem;">Join Our Journey</h3>
+      <p>We're always looking for passionate individuals to join our team. Check out our careers page or contact us directly!</p>
+      <a href="contact.html" class="btn">Get in Touch</a>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Silky Choco. All rights reserved.</p>
+    <p>Email: info@silkychoco.com | Phone: (555) 123-4567</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      const links = document.querySelectorAll('.nav-links a');
+      links.forEach(link => {
+        const href = link.getAttribute('href').split('/').pop() || 'index.html';
+        if (href === currentPage) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
