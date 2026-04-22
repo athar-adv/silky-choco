@@ -1,0 +1,19 @@
+<button class="plain">
+    <slot />
+</button>
+
+<style>
+    button.plain
+    {
+        padding: 8px;
+        border-radius: 8px;
+        border: 0.5px solid var(--border-color);
+        background: var(--button-color);
+        cursor: pointer;
+    }
+
+    button.plain:hover
+    {
+        background: var(--button-hover-color);
+    }
+</style>

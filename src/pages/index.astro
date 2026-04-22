@@ -1,0 +1,29 @@
+---
+import Layout from "@/layouts/Layout.astro"
+import {List, Widget, ButtonGrid, PlainButton} from "@/components"
+---
+
+<Layout>
+	<h1>Home</h1>
+	<List max_width="600px">
+		<Widget class="boxed">
+			<span class="bigger bold">
+				Dashboard
+			</span>
+
+			<ButtonGrid>
+				<PlainButton>
+					Hello!
+				</PlainButton>
+
+				<PlainButton>
+					Hi!
+				</PlainButton>
+			</ButtonGrid>
+		</Widget>
+		
+		<Widget class="boxed">
+			This is another widget!
+		</Widget>
+	</List>
+</Layout>

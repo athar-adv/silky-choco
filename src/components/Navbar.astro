@@ -1,0 +1,154 @@
+<nav id="navbar">
+  <div class="logo">
+    <img src="/sekas.svg" />
+    <span class="tagline">Untuk semua kebutuhan sepedamu</span>
+  </div>
+
+  <div class="links">
+    <a href="/">Beranda</a>
+    <a href="/marketplace">Marketplace</a>
+    <a href="/">Post</a>
+    <a href="/">Hubungi Kita</a>
+  </div>
+</nav>
+
+<button class="hamburger" id="hamburger">&#9776;</button>
+
+<div class="overlay" id="overlay"></div>
+
+<script>
+  const hamburger = document.getElementById('hamburger')!;
+  const navbar = document.getElementById('navbar')!;
+  const overlay = document.getElementById('overlay')!;
+
+  hamburger.addEventListener('click', () => {
+    navbar.classList.toggle('open');
+    overlay.classList.toggle('open');
+    hamburger.textContent = navbar.classList.contains('open') ? '✕' : '☰';
+  });
+
+  overlay.addEventListener('click', () => {
+    navbar.classList.remove('open');
+    overlay.classList.remove('open');
+    hamburger.textContent = '☰';
+  });
+</script>
+
+<style>
+  nav
+  {
+    width: 220px;
+    height: 100vh;
+    padding: 1.5rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    border-right: 0.5px solid #e0e0e0;
+  }
+
+  .logo
+  {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 2rem;
+  }
+
+  .logo-name
+  {
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .tagline
+  {
+    font-size: 12px;
+    color: #888;
+    text-align: center;
+  }
+
+  .links
+  {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .links a
+  {
+    font-size: 14px;
+    text-decoration: none;
+    color: inherit;
+    padding: 8px 10px;
+    border-radius: 8px;
+  }
+
+  .links a:hover
+  {
+    background: #f5f5f5;
+  }
+
+  .links a.active
+  {
+    background: #f5f5f5;
+    color: #000;
+  }
+
+  .hamburger
+  {
+    display: none;
+  }
+
+  .overlay
+  {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 99;
+  }
+
+  @media (max-width: 768px) /* On screens smaller than 768px (like mobile) use this style */
+  {
+    .hamburger
+    {
+      display: block;
+      position: fixed;
+      top: 1rem;
+      left: 0;
+      z-index: 200;
+      background: white;
+      border: 0.5px solid #e0e0e0;
+      border-left: none;
+      border-radius: 0 8px 8px 0;
+      padding: 6px 10px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: left 0.25s ease;
+    }
+
+    nav
+    {
+      position: fixed;
+      left: -100%;
+      top: 0;
+      z-index: 100;
+      background: white;
+      transition: left 0.25s ease;
+    }
+
+    nav.open
+    {
+      left: 0;
+    }
+
+    nav.open ~ .hamburger
+    {
+      left: 220px;
+    }
+
+    .overlay.open
+    {
+      display: block;
+    }
+  }
+</style>

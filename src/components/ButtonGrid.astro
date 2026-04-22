@@ -1,0 +1,12 @@
+<div class="button-grid">
+  <slot />
+</div>
+
+<style>
+    .button-grid
+    {
+        display: grid;
+        grid-template-columns: repeat(16, 1fr);
+        gap: 0.5rem;
+    }
+</style>
