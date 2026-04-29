@@ -1,0 +1,215 @@
+---
+import NavbarFriendo6 from "@/components/NavbarFriendo6.astro";
+import FooterFriendo6 from "@/components/FooterFriendo6.astro";
+
+interface Props {
+  title?: string;
+  activeTab?: string;
+}
+
+const { title = "FRIENDo6", activeTab = "home" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <style>
+      :root {
+        --bg:           #f0f6ff;
+        --bg-deep:      #e2eeff;
+        --surface:      #ffffff;
+        --accent:       #4aa8c8;
+        --accent-light: #a8daf0;
+        --accent-dark:  #2a7a9a;
+
+        /* Chocolate warmth — use on food cards/hero only */
+        --choco:        #6b4423;
+        --choco-light:  #e8d4c4;
+        --choco-mid:    #d4b5a0;
+        --cream:        #fff8f0;
+
+        --text:         #1a2a3a;
+        --text-muted:   #5a7080;
+        --border:       #c8dff0;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        position: relative;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--text);
+        background-color: var(--bg);
+        background-image:
+          radial-gradient(circle at top left,  rgba(74, 168, 200, 0.15), transparent 35%),
+          radial-gradient(circle at bottom right, rgba(168, 218, 240, 0.12), transparent 35%);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        opacity: 0.06;
+        pointer-events: none;
+        /*background-image: url("/silkychoco-webbackground.svg");*/
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      /* ====== CONTAINER ====== */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      /* ====== HERO — keeps chocolate warmth since it's food ====== */
+      .hero {
+        background: linear-gradient(135deg, var(--choco) 0%, #8b5a3c 50%, #5a3a20 100%);
+        color: white;
+        padding: 4rem 2rem;
+        text-align: center;
+        border-radius: 14px;
+        margin-bottom: 3rem;
+        box-shadow: 0 8px 32px rgba(107, 68, 35, 0.25);
+        border: 1px solid rgba(255,255,255,0.1);
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        color: var(--choco-light);
+      }
+
+      /* ====== BUTTONS ====== */
+      .btn {
+        display: inline-block;
+        background-color: var(--accent);
+        color: white;
+        padding: 0.8rem 2rem;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        margin-top: 0.5rem;
+        box-shadow: 0 2px 8px rgba(74, 168, 200, 0.4);
+      }
+
+      .btn:hover {
+        background-color: var(--accent-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(74, 168, 200, 0.5);
+      }
+
+      /* ====== GRID ====== */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      /* ====== CARDS — white/blue for general, cream for food ====== */
+      .card {
+        background: var(--surface);
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 4px 12px rgba(74, 168, 200, 0.1);
+        border: 1px solid var(--border);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: center;
+      }
+
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 28px rgba(74, 168, 200, 0.2);
+      }
+
+      .card h3 {
+        color: var(--accent-dark);
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+
+      .card p {
+        color: var(--text-muted);
+        margin-bottom: 1rem;
+      }
+
+      /* Food cards get cream treatment */
+      .card:has(.card-image) {
+        background: var(--cream);
+        border-color: var(--choco-light);
+      }
+
+      .card:has(.card-image) h3 {
+        color: var(--choco);
+      }
+
+      .card-image {
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(135deg, var(--choco-light) 0%, var(--choco-mid) 100%);
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+      }
+
+      /* ====== SECTIONS ====== */
+      section {
+        margin-bottom: 3rem;
+      }
+
+      h2 {
+        color: var(--accent-dark);
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        border-bottom: 3px solid var(--accent);
+        padding-bottom: 0.5rem;
+        display: inline-block;
+        width: 100%;
+      }
+
+      /* ====== RESPONSIVE ====== */
+      @media (max-width: 768px) {
+        .hero h1 { font-size: 2rem; }
+        .hero p  { font-size: 1rem; }
+        .container { padding: 1rem; }
+        .grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <NavbarFriendo6 activeTab={activeTab} />
+    <div class="container">
+      <slot />
+    </div>
+    <FooterFriendo6 />
+  </body>
+</html>

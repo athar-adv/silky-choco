@@ -1,29 +1,46 @@
 ---
-import Layout from "@/layouts/Layout.astro"
-import {List, Widget, ButtonGrid, PlainButton} from "@/components"
+import LayoutFriendo6 from "@/layouts/LayoutFriendo6.astro";
+import {Widget, List} from "@/components"
 ---
 
-<Layout>
-	<h1>Home</h1>
-	<List max_width="600px">
-		<Widget class="boxed">
-			<span class="bigger bold">
-				Dashboard
-			</span>
+<LayoutFriendo6 title="FRIENDo6" activeTab="home">
+	<List>
+		<section class="hero">
+			<h1>Selamat datang ke website kami!</h1>
+			<p>Produk makanan yang dibuat dengan cinta :)</p>
+			<a href="/menu" class="btn">Menu Kita</a>
+		</section>
 
-			<ButtonGrid>
-				<PlainButton>
-					Hello!
-				</PlainButton>
-
-				<PlainButton>
-					Hi!
-				</PlainButton>
-			</ButtonGrid>
+		<Widget>
+			<h2>Produk Terfitur</h2>
+			<div class="grid">
+			<div class="card">
+				<div class="card-image">🍫</div>
+				<h3>Pudding Silky Choco</h3>
+				<p>Pudding choco dengan biskuit & fla, harmoni dalam 3 lapisan!</p>
+				<a href="/menu" class="btn">Lihat lebih lanjut</a>
+			</div>
+			</div>
 		</Widget>
-		
-		<Widget class="boxed">
-			This is another widget!
+
+		<Widget>
+			<h2>Kenapa Pilih Kita?</h2>
+			<div class="grid">
+			<div class="card">
+				<h3>Mikro</h3>
+				<p>Kita adalah bisnis mikro yang dijalani murid SMA.</p>
+			</div>
+
+			<div class="card">
+				<h3>Dibuat Dengan Cinta</h3>
+				<p>Setiap produk kita buat dengan tangan & cinta!</p>
+			</div>
+
+			<div class="card">
+				<h3>Enak</h3>
+				<p>Kita menggunakan semua kemampuan kita untuk menjamin produk anda enak :D</p>
+			</div>
+			</div>
 		</Widget>
 	</List>
-</Layout>
+</LayoutFriendo6>

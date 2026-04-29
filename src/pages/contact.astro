@@ -1,0 +1,123 @@
+---
+import LayoutFriendo6 from "@/layouts/LayoutFriendo6.astro";
+---
+
+<LayoutFriendo6 title="Hubungi Kita - FRIENDo6" activeTab="contact">
+  <section>
+    <h2>Hubungi Kita</h2>
+    <div class="contact-section">
+      <div class="contact-info">
+        <h3>Informasi Kontak</h3>
+        <p>
+          <strong>Email:</strong><br />
+          erwindoppelganger@gmail.com
+        </p>
+        <p>
+          <strong>Telepon:</strong><br />
+          (+64) 081-297-199983
+        </p>
+        <p>
+          <strong>Lokasi:</strong><br />
+          Indonesia
+        </p>
+      </div>
+
+      <form class="contact-form">
+        <div class="form-group">
+          <label for="name">Nama</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="form-group">
+          <label for="message">Pesan</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+
+        <button type="submit" class="btn">Kirim Pesan</button>
+      </form>
+    </div>
+  </section>
+</LayoutFriendo6>
+
+<style>
+  .contact-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .contact-info {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .contact-info h3 {
+    color: #6b4423;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+  }
+
+  .contact-info p {
+    margin-bottom: 1rem;
+    color: #666;
+  }
+
+  .contact-info strong {
+    color: #6b4423;
+  }
+
+  .contact-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #6b4423;
+    font-weight: 500;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1rem;
+    color: #333;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: #6b4423;
+    box-shadow: 0 0 5px rgba(107, 68, 35, 0.2);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  @media (max-width: 768px) {
+    .contact-section {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

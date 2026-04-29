@@ -1,43 +1,64 @@
-<nav id="navbar">
+<button class="hamburger-open" id="hamburger-open">&#9776;</button>
+
+<nav id="navbar" class="no-transition">
+  <button class="hamburger-close" id="hamburger-close">✕</button>
   <div class="logo">
-    <img src="/sekas.svg" />
+    <img src="/fo6.svg" />
     <span class="tagline">Untuk semua kebutuhan sepedamu</span>
   </div>
 
   <div class="links">
     <a href="/">Beranda</a>
     <a href="/marketplace">Marketplace</a>
-    <a href="/">Post</a>
-    <a href="/">Hubungi Kita</a>
+    <a href="/post">Post</a>
+    <a href="/aboutus">Hubungi Kita</a>
   </div>
 </nav>
-
-<button class="hamburger" id="hamburger">&#9776;</button>
 
 <div class="overlay" id="overlay"></div>
 
 <script>
-  const hamburger = document.getElementById('hamburger')!;
+  const hamburgerOpen = document.getElementById('hamburger-open')!;
+  const hamburgerClose = document.getElementById('hamburger-close')!;
   const navbar = document.getElementById('navbar')!;
   const overlay = document.getElementById('overlay')!;
 
-  hamburger.addEventListener('click', () => {
-    navbar.classList.toggle('open');
-    overlay.classList.toggle('open');
-    hamburger.textContent = navbar.classList.contains('open') ? '✕' : '☰';
+  // const isOpen = localStorage.getItem('nav-open') === 'true';
+  // if (isOpen) {
+  //   navbar.classList.add('open');
+  //   overlay.classList.add('open');
+  // }
+
+  requestAnimationFrame(() => {
+    navbar.classList.remove('no-transition');
+  });
+
+  hamburgerOpen.addEventListener('click', () => {
+    navbar.classList.add('open');
+    overlay.classList.add('open');
+    //localStorage.setItem('nav-open', 'true');
+  });
+
+  hamburgerClose.addEventListener('click', () => {
+    navbar.classList.remove('open');
+    overlay.classList.remove('open');
+    //localStorage.setItem('nav-open', 'false');
   });
 
   overlay.addEventListener('click', () => {
     navbar.classList.remove('open');
     overlay.classList.remove('open');
-    hamburger.textContent = '☰';
+    //localStorage.setItem('nav-open', 'false');
   });
 </script>
 
 <style>
-  nav
-  {
-    width: 220px;
+  :root {
+    --nav-width: 260px;
+  }
+
+  nav {
+    width: var(--nav-width);
     height: 100vh;
     padding: 1.5rem 1.25rem;
     display: flex;
@@ -45,36 +66,26 @@
     border-right: 0.5px solid #e0e0e0;
   }
 
-  .logo
-  {
+  .logo {
     display: flex;
     flex-direction: column;
     gap: 4px;
     margin-bottom: 2rem;
   }
 
-  .logo-name
-  {
-    font-size: 18px;
-    font-weight: 500;
-  }
-
-  .tagline
-  {
+  .tagline {
     font-size: 12px;
     color: #888;
     text-align: center;
   }
 
-  .links
-  {
+  .links {
     display: flex;
     flex-direction: column;
     gap: 4px;
   }
 
-  .links a
-  {
+  .links a {
     font-size: 14px;
     text-decoration: none;
     color: inherit;
@@ -82,24 +93,15 @@
     border-radius: 8px;
   }
 
-  .links a:hover
-  {
-    background: #f5f5f5;
-  }
+  .links a:hover { background: #f5f5f5; }
+  .links a.active { background: #f5f5f5; color: #000; }
 
-  .links a.active
-  {
-    background: #f5f5f5;
-    color: #000;
-  }
-
-  .hamburger
-  {
+  .hamburger-open,
+  .hamburger-close {
     display: none;
   }
 
-  .overlay
-  {
+  .overlay {
     display: none;
     position: fixed;
     inset: 0;
@@ -107,47 +109,54 @@
     z-index: 99;
   }
 
-  @media (max-width: 768px) /* On screens smaller than 768px (like mobile) use this style */
-  {
-    .hamburger
-    {
+  @media(max-width: 768px) {
+    nav.no-transition {
+      transition: none !important;
+    }
+    /* the open button — fixed to viewport, low z-index so nav slides over it */
+    .hamburger-open {
       display: block;
       position: fixed;
       top: 1rem;
       left: 0;
-      z-index: 200;
+      z-index: 90; /* below nav's z-index of 100 */
       background: white;
       border: 0.5px solid #e0e0e0;
       border-left: none;
       border-radius: 0 8px 8px 0;
-      padding: 6px 10px;
+      padding: 4px 10px;
       font-size: 18px;
       cursor: pointer;
-      transition: left 0.25s ease;
     }
 
-    nav
-    {
+    /* the close button — sits inside the nav */
+    .hamburger-close {
+      display: block;
+      align-self: flex-end;
+      background: none;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      padding: 4px 8px;
+      margin-bottom: 1rem;
+    }
+
+    nav {
       position: fixed;
-      left: -100%;
+      left: calc(-1 * (var(--nav-width) + 40px));
       top: 0;
+      width: var(--nav-width);
       z-index: 100;
       background: white;
+      overflow: hidden;
       transition: left 0.25s ease;
     }
 
-    nav.open
-    {
+    nav.open {
       left: 0;
     }
 
-    nav.open ~ .hamburger
-    {
-      left: 220px;
-    }
-
-    .overlay.open
-    {
+    .overlay.open {
       display: block;
     }
   }
