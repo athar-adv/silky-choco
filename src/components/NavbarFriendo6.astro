@@ -9,14 +9,14 @@ const { activeTab = "" } = Astro.props;
 <nav>
   <div class="navbar-container">
     <a href="/" class="logo">
-      <img src="/fo6.svg" alt="FRIENDo6 logo" width="36" height="36" />
+      <img src="${import.meta.env.BASE_URL}fo6.svg" alt="FRIENDo6 logo" width="36" height="36" />
       friendo6
     </a>
     <ul class="nav-links">
-      <li><a href="/" class={activeTab === "home" ? "active" : ""}>Home</a></li>
-      <li><a href="/menu" class={activeTab === "menu" ? "active" : ""}>Menu</a></li>
-      <li><a href="/about" class={activeTab === "about" ? "active" : ""}>About</a></li>
-      <li><a href="/contact" class={activeTab === "contact" ? "active" : ""}>Contact</a></li>
+      <li><a href="${import.meta.env.BASE_URL}" class={activeTab === "home" ? "active" : ""}>Home</a></li>
+      <li><a href="${import.meta.env.BASE_URL}menu" class={activeTab === "menu" ? "active" : ""}>Menu</a></li>
+      <li><a href="${import.meta.env.BASE_URL}about" class={activeTab === "about" ? "active" : ""}>About</a></li>
+      <li><a href="${import.meta.env.BASE_URL}contact" class={activeTab === "contact" ? "active" : ""}>Contact</a></li>
     </ul>
   </div>
 </nav>
