@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu - FRIENDo6</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav>
+    <div class="navbar-container">
+      <a href="../index.html" class="logo">FRIENDo6</a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="menu.html" class="active">Menu</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <div class="container">
+    <section>
+      <h2>Menu Kita</h2>
+      <p style="text-align: center; color: #666; margin-bottom: 2rem;">
+        Pilih yang anda suka :D
+      </p>
+
+      <!-- PRODUCT CATEGORIES -->
+      <div class="grid">
+        <div class="card">
+          <div class="card-image">🍫</div>
+          <h3>Pudding Silky Choco</h3>
+          
+          <p>
+            <strong>Penyuka Pudding</strong> - Lebih banyak pudding
+            <h2>10.000Rp.-</h2>
+          </p>
+          <p>
+            <strong>Penyuka Biskuit</strong> - Lebih banyak biskuit
+            <h2>8.000Rp.-</h2>
+          </p>
+
+          <p style="margin-top: 1rem; color: #999; font-size: 0.9rem;">Sedia dalam berbagai ukuran</p>
+        </div>
+      </div>
+
+      <!-- BULK ORDERS -->
+      <!-- <section style="margin-top: 3rem; background: #f0e6d2; padding: 2rem; border-radius: 10px; text-align: center;">
+        <h3 style="color: #6b4423; margin-bottom: 1rem;">Bulk Orders & Corporate Gifts</h3>
+        <p>Looking for large quantities or custom corporate gifts? We offer special rates for bulk orders.</p>
+        <a href="contact.html" class="btn">Request a Quote</a>
+      </section> -->
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 athar-adv. Hak cipta dilindungi undang-undang.</p>
+    <p>Email: erwindoppelganger@gmail.com | Telepon: (+64) 081-297-199983</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      const links = document.querySelectorAll('.nav-links a');
+      links.forEach(link => {
+        const href = link.getAttribute('href').split('/').pop() || 'index.html';
+        if (href === currentPage) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
